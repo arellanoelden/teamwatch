@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Sections, Style and Meta Data">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Team Watch</title>
+  <link rel="stylesheet" href="../mainv.css">
+</head>
+<body>
+  <div class="header">
+    <h1>Team Watch</h1>
+  </div>
+  <table id="header-table">
+    <tr>
+      <td class="header-td"><a class="header-link" href="../indexv.html"> Home </a></td>
+      <td class="header-td active"><a class="header-link" href="game_schedulev.html"> Game </a></td>
+      <td class="header-td"><a class="header-link" href="../player/player_listv.html"> Player </a></td>
+      <td class="header-td"><a class="header-link" href="../manage/view_profilev.html"> Manage </a></td>
+    </tr>
+  </table>
+
+  <br/>
+  <h1 style="color: black;">Add a New Game</h1>
+  <br/>
+
+  <table class="playerinfo">
+    <tr>
+      <td><label>Opponent Team:</label></td>
+      <td><input type="text" name="opponent" id="opponent"></td>
+    </tr>
+    <tr>
+      <td><label>Date / Time:</label></td>
+      <td><input type="datetime-local" name="datetime" id="datetime"></td>
+    </tr>
+    <tr>
+      <td><label>Location:</label></td>
+      <td><input type="text" name="loc" id="loc"></td>
+    </tr>
+    <tr>
+      <td><label>Status:</label></td>
+      <td>
+        <input id="homeOption" type="radio" name="homeOrAwayType" value="home" checked="checked">
+        <label>Home</label>
+      </td>
+    </tr>
+    <tr>
+      <td><label></label></td>
+      <td>
+        <input id="awayOption" type="radio" name="homeOrAwayType" value="away">
+        <label>Away</label>
+      </td>
+    </tr>
+  </table>
+
+  <div class="center" style="border-radius:0.25rem;">
+    <input style="width:12rem; border-radius:0.25rem;" type="submit" value="Add Game" class="button" onclick="location.href='game_schedulev.html'">
+  </div>
+</body>
+</html>

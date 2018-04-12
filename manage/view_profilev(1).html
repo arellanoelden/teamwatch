@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Sections, Style and Meta Data">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Team Watch</title>
+  <link rel="stylesheet" href="../mainv.css">
+</head>
+<body>
+  <div class="header">
+    <h1>Team Watch</h1>
+  </div>
+  <table id="header-table">
+    <tr>
+      <td class="header-td"><a class="header-link" href="../indexv.html"> Home </a></td>
+      <td class="header-td"><a class="header-link" href="../game/game_schedulev.html"> Game </a></td>
+      <td class="header-td"><a class="header-link" href="../player/player_listv.html"> Player </a></td>
+      <td class="header-td active"><a class="header-link" href="#"> Manage </a></td>
+    </tr>
+  </table>
+  <a href="edit_profilev.html"><img style="float: right; margin-top: 1vh;margin-right: 2vw;" width=30 height=30 src="../../hw3b/images/edit2.png" alt="edit"></a>
+  <table class="playerinfo">
+    <tr>
+      <td><img id="profile_pic" src="" alt="profile pic"></td>
+      <td ><p id="name">John Smith</p><p id="usertype">Coach</p></td>
+    </tr>
+    <tr>
+      <td>Email:</td>
+      <td id="email"></td>
+    </tr>
+    <tr>
+      <td>Date of Birth:</td>
+      <td id="DOB"></td>
+    </tr>
+  </table>
+  <br/>
+  <br/>
+  <br/>
+  <button class="button logout-button" onclick="location.href='../indexv.html'">Logout</button>
+  <script>
+      data = '[{"name" : "Elden Arellano", "usertype" : "Coach","DOB": "03/31/1996","profile_pic":"../profile_pic.jpg","email":"elarella@ucsd.edu"}]';
+      var x = JSON.parse(data);
+      var id = "";
+      var inputs = document.querySelectorAll(".playerinfo tr td:nth-child(2)");
+      var names = document.querySelectorAll(".playerinfo tr td *");
+      console.log(names);
+      for(i= 0;i < inputs.length; i++) {
+        if(inputs[i].hasAttribute("id") && x[0][inputs[i].getAttribute("id")]) {
+          id = inputs[i].getAttribute("id");
+          inputs[i].textContent = x[0][id];
+        }
+      }
+      for(i= 0;i < names.length; i++) {
+        if(names[i].hasAttribute("id") && x[0][names[i].getAttribute("id")]) {
+          id = names[i].getAttribute("id");
+          if(names[i].tagName == "IMG") {
+            names[i].setAttribute("src",x[0][id]);
+          }
+          else {
+            names[i].textContent = x[0][id];
+          }
+        }
+      }
+    </script>
+</body>
+</html>

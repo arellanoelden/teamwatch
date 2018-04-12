@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Sections, Style and Meta Data">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Team Watch</title>
+  <link rel="stylesheet" href="../mainv.css">
+  <style type="text/css">
+    .playerinfo tr td:nth-child(1) { 
+      width: 100%;
+      margin-right: 1vw;
+    }
+  </style>
+</head>
+  <body>
+  <div class="header">
+    <h1>Team Watch</h1>
+  </div>
+  <table id="header-table">
+    <tr>
+      <td class="header-td"><a class="header-link" href="../indexv.html"> Home </a></td>
+      <td class="header-td"><a class="header-link" href="../game/game_schedulev.html"> Game </a></td>
+      <td class="header-td active"><a class="header-link" href="../player/player_listv.html"> Player </a></td>
+      <td class="header-td"><a class="header-link" href="../manage/view_profilev.html"> Manage </a></td>
+    </tr>
+  </table>
+    <table class="playerinfo">
+      <tr>
+        <td><img id="profile_pic" src="" alt="profile pic"></td>
+        <td ><p id ="name"></p><p id="playerID"></p></td>
+      </tr>
+      <tr>
+        <td>Position:</td>
+        <td id="position"></td>
+      </tr>
+      <tr>
+        <td>Jersey #:</td>
+        <td id="jersey"></td>
+      </tr>
+      <tr>
+        <td>Date of Birth:</td>
+        <td id="DOB"></td>
+      </tr>
+      <tr>
+        <td>Goals:</td>
+        <td id="goals"></td>
+      </tr>
+      <tr>
+        <td>Assists:</td>
+        <td id="assists"></td>
+      </tr>
+      <tr>
+        <td>Shots on Goal:</td>
+        <td id="shots"></td>
+      </tr>
+      <tr>
+        <td>Red Cards:</td>
+        <td id="reds"></td>
+      </tr>
+      <tr>
+        <td>Yellow Cards:</td>
+        <td id="yellows"></td>
+      </tr>
+      <tr>
+        <td>Fouls:</td>
+        <td id="fouls"></td>
+      </tr>
+      <tr>
+        <td>Penalty Kicks:</td>
+        <td id="pks"></td>
+      </tr>
+      <tr>
+        <td>Corner Kicks:</td>
+        <td id="cks"></td>
+      </tr>
+      <tr>
+        <td>Goal Kicks:</td>
+        <td id="gks"></td>
+      </tr>
+      <tr>
+        <td>Free Throws:</td>
+        <td id="throws"></td>
+      </tr>
+      <tr>
+        <td>Games Played:</td>
+        <td id="games"></td>
+      </tr>
+    </table>
+    <script>
+      data = '[{"name" : "Elden Arellano", "playerID" : "00001","position" : "Midfield", "DOB": "03/31/1996","jersey": "17","goals": "10","assists": "8","shots":"15","reds":"1","yellows":"6","fouls":"22","pks":"4","cks":"11","gks":"2","throws":"27","games":"20","profile_pic":"../profile_pic.jpg"}]';
+      var x = JSON.parse(data);
+      var id = "";
+      var inputs = document.querySelectorAll(".playerinfo tr td:nth-child(2)");
+      var names = document.querySelectorAll(".playerinfo tr td *");
+      console.log(names);
+      for(i= 0;i < inputs.length; i++) {
+        if(inputs[i].hasAttribute("id") && x[0][inputs[i].getAttribute("id")]) {
+          id = inputs[i].getAttribute("id");
+          inputs[i].textContent = x[0][id];
+        }
+      }
+      for(i= 0;i < names.length; i++) {
+        if(names[i].hasAttribute("id") && x[0][names[i].getAttribute("id")]) {
+          id = names[i].getAttribute("id");
+          if(names[i].tagName == "IMG") {
+            names[i].setAttribute("src",x[0][id]);
+          }
+          else {
+            names[i].textContent = x[0][id];
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

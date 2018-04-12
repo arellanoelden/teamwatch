@@ -1,0 +1,14 @@
+{
+  "short_name": "Team Watch",
+  "name": "Team Watch",
+  "icons": [
+    {
+      "src": "images/soccer_ball.png",
+      "type": "image/jpg",
+      "sizes": "48x48"
+    }
+  ],
+  "start_url": "https://cse134bfinal.firebaseapp.com?launcher=true",
+  "background_color": "#8bc34a",
+  "display": "standalone"
+}

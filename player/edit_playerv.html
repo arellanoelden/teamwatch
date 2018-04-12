@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Sections, Style and Meta Data">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Team Watch</title>
+  <link rel="stylesheet" href="../mainv.css">
+</head>
+  <body>
+  <div class="header">
+    <h1>Team Watch</h1>
+  </div>
+  <table id="header-table">
+    <tr>
+      <td class="header-td"><a class="header-link" href="../indexv.html"> Home </a></td>
+      <td class="header-td"><a class="header-link" href="../game/game_schedulev.html"> Game </a></td>
+      <td class="header-td active"><a class="header-link" href="../player/player_listv.html"> Player </a></td>
+      <td class="header-td"><a class="header-link" href="../manage/view_profilev.html"> Manage </a></td>
+    </tr>
+  </table>
+    <table class="playerinfo">
+      <tr>
+        <td><img src="../../hw3b/images/profilepic.jpg" alt="profile pic" id="profile_pic"></td>
+        <td><input style="border-radius:0.25rem;" type="submit" value="Add a photo" class="button" id="addphoto"></td>
+      </tr>
+      <tr>
+        <td><label>First Name:</label></td>
+        <td><input type="text" name="fname" id="fname"></td>
+      </tr>
+      <tr>
+        <td><label>Last Name:</label></td>
+        <td><input type="text" name="lname" id="lname"></td>
+      </tr>
+      <tr>
+        <td><label>Email Name:</label></td>
+        <td><input type="text" name="email" id="email"></td>
+      </tr>
+      <tr>
+        <td><label>Date of Birth:</label></td>
+        <td><input type="text" name="DOB" id="DOB"></td>
+      </tr>
+      <tr>
+        <td><label>Jersey Number:</label></td>
+        <td><input type="text" name="jersey" id="jersey"></td>
+      </tr>
+      <tr>
+        <td><label>Position:</label></td>
+        <td><input type="text" name="position" id="position"></td>
+      </tr>
+      <tr>
+        <td><label>Captain:</label></td>
+        <td><select id="captain" name="captain">
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </td>
+      </tr>
+    </table>
+    <div class="center" style="border-radius:0.25rem;">
+      <input style="border-radius:0.25rem; width:21rem;" type="submit" value="Save" class="button" onclick="location.href='player_listv.html'">
+    </div>
+    <div class="center" style="border-radius:0.25rem;">
+      <input style="border-radius:0.25rem;" type="submit" value="Delete" class="redbutton" onclick="location.href='player_listv.html'">
+    </div>
+    <script>
+      data = '[{"fname" : "Elden", "lname" : "Arellano","email" : "elarella@ucsd.edu", "DOB": "03/31/1996","jersey": "17","position": "midfield","captain": "No","profile_pic":"../profile_pic.jpg"}]';
+      var x = JSON.parse(data);
+      var id = "";
+      var inputs = document.querySelectorAll(".playerinfo tr td:nth-child(2) > :first-child");
+      var names = document.querySelectorAll(".playerinfo tr td img");
+      for(i= 0;i < inputs.length; i++) {
+        if(inputs[i].hasAttribute("id") && x[0][inputs[i].getAttribute("id")]) {
+          id = inputs[i].getAttribute("id");
+          if(id == "captain") {
+            var options = document.querySelectorAll("#captain option");
+            for(j = 0; j < options.length;j++) {
+              if(options[j].textContent == x[0][id]) {
+                options[j].setAttribute("selected",true);
+                break;
+              }
+            }
+          }
+          else {
+            inputs[i].setAttribute("value",x[0][id]);
+          }
+        }
+      }
+      for(i= 0;i < names.length; i++) {
+        if(names[i].hasAttribute("id") && x[0][names[i].getAttribute("id")]) {
+          id = names[i].getAttribute("id");
+          if(names[i].tagName == "IMG") {
+            names[i].setAttribute("src",x[0][id]);
+          }
+          else {
+            names[i].textContent = x[0][id];
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

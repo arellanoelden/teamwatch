@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Sections, Style and Meta Data">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Team Watch</title>
+  <link rel="stylesheet" href="mainv.css">
+</head>
+  <body>
+  <div class="header">
+    <h1>Team Watch</h1>
+  </div>
+  <table id="header-table">
+    <tr>
+      <td class="header-td active"><a class="header-link" href="indexv.html"> Home </a></td>
+      <td class="header-td"><a class="header-link" href="game/game_schedulev.html"> Game </a></td>
+      <td class="header-td"><a class="header-link" href="player/player_listv.html"> Player </a></td>
+      <td class="header-td"><a class="header-link" href="manage/view_profilev.html"> Manage </a></td>
+    </tr>
+    </table>
+    <table class="playerinfo">
+      <tr>
+        <td colspan="2"><img style="margin-left:70%;" src="../hw3b/images/soccer_ball.png" alt="soccer ball"></td>
+      </tr>
+      <tr>
+        <td><label>User ID(email):</label></td>
+        <td><input type="text" name="fname" id="fname"></td>
+      </tr>
+      <tr>
+        <td><label>First Name:</label></td>
+        <td><input type="text" name="lname" id="lname"></td>
+      </tr>
+      <tr>
+        <td><label>Last Name:</label></td>
+        <td><input type="text" name="email" id="email"></td>
+      </tr>
+      <tr>
+        <td><label>Password:</label></td>
+        <td><input type="text" name="DOB" id="DOB"></td>
+      </tr>
+      <tr>
+        <td><label>Confirm Password:</label></td>
+        <td><input type="text" name="jersey" id="jersey"></td>
+      </tr>
+    </table>
+    <div style="text-align:center;">
+        <input id="coachOption" type="radio" name="userType" value="coach" checked="checked">
+        <label>Coach</label>
+    </div>
+    <div style="text-align:center;">
+      <input id="parentOption" type="radio" name="userType" value="parent">
+      <label>Parent</label>
+    </div>
+    <div style="text-align:center;">
+      <input id="playerOption" type="radio" name="userType" value="player">
+      <label>Player</label>
+    </div>
+    <div class="center" style="border-radius:0.25rem;">
+      <input style="width:12rem; border-radius:0.25rem;" type="submit" value="Sign up" class="button" onclick="location.href='indexv.html'">
+    </div>
+  </body>
+</html>

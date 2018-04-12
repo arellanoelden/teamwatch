@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Sections, Style and Meta Data">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Team Watch</title>
+  <link rel="stylesheet" href="../mainv.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  <style>
+  .game-stats-live-header {
+    width: 50%;
+    margin: auto;
+    border-spacing: 3vh;
+  }
+  .game-stats-live-header tr td:first-child{
+    float:right;
+  }
+  .game-stats-live-header td:nth-child(-n+2) {
+    width: 25%;
+  }
+  .game-stats-live-header td:nth-child(n+3) {
+    width: 50%;
+  }
+  .score {
+    font-size: 2rem;
+  }
+  .game-stats-live {
+    width: 70%;
+    margin: auto;
+    border-spacing: 1vh;
+  }
+  .game-stats-live tr{
+    text-align: center;
+  }
+  .stat-type {
+    font-size: 1.3rem;
+  }
+
+  .stats-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 20vw;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  .stats-dropdown-content .player-list-stats td:hover {
+    background-color: #f1f1f1
+  }
+  .player-list-stats td{
+    padding: .7rem;
+    font-size: .8rem;
+  }
+  button[class~="edit-stats-button"]:active + .stats-dropdown-content{
+    display: block;
+    bottom: 0;
+  }
+  .soccer-appearance {
+    background-color: #ffd12b;
+  }
+  button[class~="minus-button"] + div{
+    right: 0;
+  }
+  .edit-stats-button {
+    padding: .5rem .7rem .5rem .7rem;
+    font-size: 1rem;
+    background-color: rgb(134, 142, 149);
+    color: white;
+  }
+  .minus-button {
+    padding-left: .8rem;
+    padding-right: .8rem;
+  }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Team Watch</h1>
+  </div>
+  <table id="header-table">
+    <tr>
+      <td class="header-td"><a class="header-link" href="../indexv.html"> Home </a></td>
+      <td class="header-td active"><a class="header-link" href="game_schedulev.html"> Game </a></td>
+      <td class="header-td"><a class="header-link" href="../player/player_listv.html"> Player </a></td>
+      <td class="header-td"><a class="header-link" href="../manage/view_profilev.html"> Manage </a></td>
+    </tr>
+  </table>
+  <br />
+  <div class="center">
+    <h1 style="color: black;">Game Statistics Live</h1>
+    <br />
+  </div>
+  <table class="game-stats-live-header">
+    <tr>
+      <td>
+        <img alt="profile pic" width=75 height=75 src="../../hw3b/images/profilepic.jpg">
+      </td>
+      <td>
+        <h1 style="color:black;" id="teamName">Woo</h1>
+      </td>
+      <td>
+        <p><strong>Time:</strong> 30:05</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p class="score">20</p>
+        <p>Woo</p>
+      </td>
+      <td style="border-left: 1px solid; padding-left: 2vw;">
+        <p class="score">20</p>
+        <p>Opponent</p>
+      </td>
+      <td>
+        <label>Possession</label>
+        <input id="possession" class="possession" type="checkbox" value="">
+        <p style="margin-top: 2vh;">Possession Time: 00:02:00</p>
+      </td>
+    </table>
+    <hr/>
+    <br />
+    <table class="game-stats-live">
+      <tr>
+        <td>
+          <div class="stats-dropdown">
+            <button class="edit-stats-button">+</button>
+          </div>
+        </td>
+        <td><p class="stat-type">Shot On Goals</p></td>
+        <td>
+          <div class="stats-dropdown">
+            <button class="edit-stats-button minus-button">-</button>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td><div class="stats-dropdown">
+          <button class="edit-stats-button">+</button>
+        </div></td>
+        <td><p class="stat-type">Goal Kicks</p></td>
+        <td><div class="stats-dropdown">
+          <button class="edit-stats-button minus-button">-</button>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td><div class="stats-dropdown">
+        <button class="edit-stats-button">+</button>
+      </div></td>
+      <td><p class="stat-type">Throw In</p></td>
+      <td><div class="stats-dropdown">
+        <button class="edit-stats-button minus-button">-</button>
+      </div></td>
+    </tr>
+    <tr>
+      <td><div class="stats-dropdown">
+        <button class="edit-stats-button">+</button>
+      </div></td>
+      <td><p class="stat-type">Corner Kicks</p></td>
+      <td><div class="stats-dropdown">
+        <button class="edit-stats-button minus-button">-</button>
+      </div></td>
+    </tr>
+    <tr>
+      <td><div class="stats-dropdown">
+        <button class="edit-stats-button">+</button>
+      </div></td>
+      <td><p class="stat-type">Fouls</p></td>
+      <td><div class="stats-dropdown">
+        <button class="edit-stats-button minus-button">-</button>
+      </div></td>
+    </tr>
+    <tr>
+      <td><div class="stats-dropdown">
+        <button class="edit-stats-button">+</button>
+      </div></td>
+      <td><p class="stat-type">Goals</p></td>
+      <td><div class="stats-dropdown">
+        <button class="edit-stats-button minus-button">-</button>
+      </div></td>
+    </tr>
+    <tr>
+      <td><div class="stats-dropdown">
+        <button class="edit-stats-button">+</button>
+      </div></td>
+      <td><p class="stat-type">Goals Against</p></td>
+      <td><div class="stats-dropdown">
+        <button class="edit-stats-button minus-button">-</button>
+      </div></td>
+    </tr>
+    <tr>
+      <td><div class="stats-dropdown">
+        <button class="edit-stats-button">+</button>
+      </div></td>
+      <td><p class="stat-type">Penalty Kick</p></td>
+      <td><div class="stats-dropdown">
+        <button class="edit-stats-button minus-button">-</button>
+      </div></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <div class="stats-dropdown">
+          <button class="edit-stats-button">Appearance</button>
+        </div>
+      </td>
+      <td></td>
+    </tr>
+  </table>
+  <br/>
+  <br/>
+  <script>
+    data = '[{"players":[{"number":"1","name":"Elden Arellano", "profile_pic":"../profile_pic.jpg"},{"number":"2","name":"Carlos Granados", "profile_pic":"../profile_pic.jpg"},{"number":"3","name":"Victor Palafox", "profile_pic":"../profile_pic.jpg"},{"number":"4","name":"Nelson Hernandez", "profile_pic":"../profile_pic.jpg"},{"number":"5","name":"Juan Carlos", "profile_pic":"../profile_pic.jpg"},{"number":"6","name":"Kyle Rodrigez", "profile_pic":"../profile_pic.jpg"},{"number":"7","name":"Sahil Bansal", "profile_pic":"../profile_pic.jpg"},{"number":"8","name":"Guhan Sundar", "profile_pic":"../profile_pic.jpg"}]}]';
+    var tags = document.querySelectorAll(".stats-dropdown");
+    var div = "";
+    
+    for(i = 0; i < tags.length;i++) {
+      div = document.createElement('div');
+      div.className = "stats-dropdown-content";
+      div.innerHTML = '<table class="player-list-stats"><tr><td><img alt="profile pic" src="../../hw3b/images/profilepic.jpg" width=50 height=50><p>Tina Nguyen</p><p>1</p></td><td><img alt="profile pic" src="../../hw3b/images/profilepic.jpg" width=50 height=50><p>Tina Nguyen</p><p>1</p></td><td><img alt="profile pic" src="../../hw3b/images/profilepic.jpg" width=50 height=50><p>Tina Nguyen</p><p>1</p></td><td><img alt="profile pic" src="../../hw3b/images/profilepic.jpg" width=50 height=50><p>Tina Nguyen</p><p>1</p></td></tr><tr><td><img alt="profile pic" src="../../hw3b/images/profilepic.jpg" width=50 height=50><p>Tina Nguyen</p><p>1</p></td><td><img alt="profile pic" src="../../hw3b/images/profilepic.jpg" width=50 height=50><p>Tina Nguyen</p><p>1</p></td></tr></table>';
+      tags[i].appendChild(div);
+      
+    }
+  </script>
+</body>
+</html>

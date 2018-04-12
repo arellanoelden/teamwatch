@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- File transfer size:13KB
+       Load time: 4.38s
+       DOM: 2.23s
+  -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Sections, Style and Meta Data">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Team Watch</title>
+  <link rel="stylesheet" href="../mainv.css">
+  <style type="text/css">
+    .container1 {
+	  width:30vw;
+      min-width:15rem;
+      height: 7rem;
+      margin:auto;  
+      display: inline-block;
+      margin-right:0.3vw;
+      border: 0.05rem solid black;
+    }
+    .container2 {
+	  width:30vw;
+      min-width: 15rem;
+      height: 7rem;
+      /margin:auto;
+      /float:left;
+      display:inline-block;
+      border: 0.05rem solid black;
+    }
+
+    .imageclass {
+      float:left;
+	  width:25%;
+	  height:100%;
+    }
+
+    .textclass {
+	  float:left;
+	  width:30%;
+	  margin-top:5%;
+      margin-left:0%;
+      display:inline;
+      text-align: left;
+      margin-left: 2%;
+    }
+    .view {
+      float:right;
+      width:4rem;
+      display:block;
+      margin-top: 3%;
+      margin-right: 3%;
+      
+    }
+    .number {
+      float:left;
+      margin-left: 0%;
+      margin-top: 15%;
+    }  
+  </style>
+</head>
+  <body>
+  <div class="header">
+    <h1>Team Watch</h1>
+  </div>
+  <table id="header-table">
+    <tr>
+      <td class="header-td"><a class="header-link" href="../indexv.html"> Home </a></td>
+      <td class="header-td"><a class="header-link" href="../game/game_schedulev.html"> Game </a></td>
+      <td class="header-td active"><a class="header-link" href="../player/player_listv.html"> Player </a></td>
+      <td class="header-td"><a class="header-link" href="../manage/view_profilev.html"> Manage </a></td>
+    </tr>
+  </table>
+    <div style="margin-right:1.5vw; margin-top:0.5vh;">
+      <div style="float:right; border-radius:0.25rem;">
+      <input style="border-radius:0.25rem;" type="submit" value="Add player" class="button" onclick="location.href='add_playerv.html'">
+    </div>
+    </div>
+    <div id="player_list" style="width:100%; text-align:center; margin-top: 3vh; clear:both;">
+    
+    
+    </div>
+    <script>
+      data = '[{"players":[{"number":"1","name":"Elden Arellano", "link": "view_playerv.html", "profile_pic":"../profile_pic.jpg"},{"number":"2","name":"Carlos Granados", "link": "view_playerv.html", "profile_pic":"../profile_pic.jpg"},{"number":"3","name":"Victor Palafox", "link": "view_playerv.html", "profile_pic":"../profile_pic.jpg"},{"number":"4","name":"Nelson Hernandez", "link": "view_playerv.html", "profile_pic":"../profile_pic.jpg"},{"number":"5","name":"Juan Carlos", "link": "view_playerv.html", "profile_pic":"../profile_pic.jpg"},{"number":"6","name":"Kyle Rodrigez", "link": "view_playerv.html", "profile_pic":"../profile_pic.jpg"},{"number":"7","name":"Sahil Bansal", "link": "view_playerv.html", "profile_pic":"../profile_pic.jpg"},{"number":"8","name":"Guhan Sundar", "link": "view_playerv.html", "profile_pic":"../profile_pic.jpg"}]}]';
+      var x = JSON.parse(data);
+      var div = "";
+      var nextclass = "container1";
+      var list = document.getElementById('player_list');
+      for(i = 0; i < x[0].players.length; i++) {
+        div = document.createElement('div');
+        div.className = nextclass;
+        nextclass = nextclass == "container1" ? "container2":"container1";
+        div.innerHTML = '<img id="profile_pic" alt="profile pic" class="imageclass" src="' + x[0].players[i].profile_pic + '"><span class="textclass"> <strong>' + x[0].players[i].name + '</strong><br/><b class="number" id="number">' + x[0].players[i].number + '</b></span><p class="view"><input style="width:100%; border-radius:0.25rem;" type="submit" value="View" class="button view" id="link" onclick="location.href='+ "'" + x[0].players[i].link + "'" + '"></p>';
+        
+        list.appendChild(div);
+        if(div.className == "container2") {
+          var br = document.createElement('br');
+          list.appendChild(br);
+        }
+      }
+    </script>
+  </body>
+</html>

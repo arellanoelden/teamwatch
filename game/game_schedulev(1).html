@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Sections, Style and Meta Data">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Team Watch</title>
+  <link rel="stylesheet" href="../mainv.css">
+</head>
+<body>
+  <div class="header">
+    <h1>Team Watch</h1>
+  </div>
+  <table id="header-table">
+    <tr>
+      <td class="header-td"><a class="header-link" href="../indexv.html"> Home </a></td>
+      <td class="header-td active"><a class="header-link" href="#"> Game </a></td>
+      <td class="header-td"><a class="header-link" href="../player/player_listv.html"> Player </a></td>
+      <td class="header-td"><a class="header-link" href="../manage/view_profilev.html"> Manage </a></td>
+    </tr>
+  </table>
+
+  <button class="button add-button" onclick="location.href='add_gamev.html'">Add A Game</button>
+  <br />
+  <br />
+  <br />
+  <hr />
+
+  <table class="stats-actions">
+    <tr>
+      <td><button class="stats-button" onclick="location.href='view_statsv.html'">View Stats</button></td>
+      <td><a href="edit_gamev.html"><img style="margin-top: 1vh;" width=25 height=25 src="../../hw3b/images/edit2.png" alt="edit"></a></td>
+    </tr>
+  </table>
+
+  <div class="game-info center">
+    <p class="game-title">Previous Game</p>
+    <p id="timeOfPrevGame">10/15 Sun 8:00 PM</p>
+    <p id="locOfPrevGame">San Diego Petco Park</p>
+    <p id="opponentOfPrevGame">Team Woo vs. Opponent</p>
+    <p id="scoreOfPrevGame" style="font-weight: bold;">1:1</p>
+    <p id="homeOrAwayPrevGame">Home Game</p>
+    <br/>
+  </div>
+  <hr />
+  <table class="stats-actions">
+    <tr>
+      <td><button onclick="location.href='edit_statsv.html'" class="stats-button">Add Stats Live</button></td>
+      <td><a href="edit_gamev.html"><img style="margin-top: 1vh;" width=25 height=25 src="../../hw3b/images/edit2.png" alt="edit"></a></td>
+    </tr>
+  </table>
+  <div class="game-info center">
+    <p class="game-title">Today's Game</p>
+    <p id="timeOfTodGame">10/15 Sun 8:00 PM</p>
+    <p id="locOfTodGame">San Diego Petco Park</p>
+    <p id="opponentOfTodGame">Team Woo vs. Opponent</p>
+    <p id="homeOrAwayCurrGame">Home Game</p>
+    <br/>
+  </div>
+  <hr />
+  <table class="stats-actions">
+    <tr>
+      <td><img style="margin-top: 1vh;" width=25 height=25 src="../../hw3b/images/edit2.png" alt="edit" onclick="location.href='edit_gamev.html'"></td>
+    </tr>
+  </table>
+  <div class="game-info center">
+    <p class="game-title">Next Upcoming Game</p>
+    <p id="timeOfNextGame">10/20 Sun 8:00 PM</p>
+    <p id="locOfNextGame">San Diego Petco Park</p>
+    <p id="opponentOfNextGame">Team Woo vs. Opponent</p>
+    <p id="homeOrAwayNextGame">Away Game</p>
+    <br/>
+  </div>
+  <br />
+</body>
+</html>

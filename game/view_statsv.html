@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Sections, Style and Meta Data">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Team Watch</title>
+  <link rel="stylesheet" href="../mainv.css">
+</head>
+<body>
+  <div class="header">
+    <h1>Team Watch</h1>
+  </div>
+  <table id="header-table">
+    <tr>
+      <td class="header-td"><a class="header-link" href="../indexv.html"> Home </a></td>
+      <td class="header-td active"><a class="header-link" href="game_schedulev.html"> Game </a></td>
+      <td class="header-td"><a class="header-link" href="../player/player_listv.html"> Player </a></td>
+      <td class="header-td"><a class="header-link" href="../manage/view_profilev.html"> Manage </a></td>
+    </tr>
+  </table>
+
+  <br />
+  <div class="center">
+    <h1 style="color: black;" id="winOrLoss">Win</h1>
+    <br />
+    <p id="datePlayed"></p>
+    <p id="location"></p>
+  </div>
+  <table class="contenders">
+    <tr>
+      <td><p id="homeTeam"></p></td>
+      <td><p id="oppTeam"></p></td>
+    </tr>
+  </table>
+  <br/>
+    <table class="game-stats">
+      <tr>
+        <td><p id="homeNumGoals"></p></td>
+        <td><p class="statLabel">Goals</p></td>
+        <td><p id="oppNumGoals"></p></td>
+      </tr>
+
+      <tr>
+        <td><p id="homeNumShotOnGoals"></p></td>
+        <td><p class="statLabel">Shot on Goals</p></td>
+        <td><p id="oppNumShotOnGoals"></p></td>
+      </tr>
+
+      <tr>
+        <td><p id="homeNumPoss"></p></td>
+        <td><p class="statLabel">Possessions</p></td>
+        <td><p id="oppNumPoss"></p></td>
+      </tr>
+
+      <tr>
+        <td><p id="homeNumCards"></p></td>
+        <td><p class="statLabel">Cards</p></td>
+        <td><p id="oppNumCards"></p></td>
+      </tr>
+
+      <tr>
+        <td><p id="homeNumFouls"></p></td>
+        <td><p class="statLabel">Fouls</p></td>
+        <td><p id="oppNumFouls"></p></td>
+      </tr>
+
+      <tr>
+        <td><p id="homeNumCornKicks"></p></td>
+        <td><p class="statLabel">Corner Kicks</p></td>
+        <td><p id="oppNumCornKicks"></p></td>
+      </tr>
+
+      <tr>
+        <td><p id="homeNumGoalKicks"></p></td>
+        <td><p class="statLabel">Goals Kicks</p></td>
+        <td><p id="oppNumGoalKicks"></p></td>
+      </tr>
+    </table>
+    <script>
+      data = '[{"game":[{"homeTeam":"Woo","homeNumGoals":"3", "homeNumShotOnGoals": "3", "homeNumPoss":"50%","homeNumCards":"3","homeNumFouls":"3", "homeNumCornKicks": "3", "homeNumGoalKicks":"3"},{"oppTeam":"Opponent","oppNumGoals":"2", "oppNumShotOnGoals": "2", "oppNumPoss":"50%","oppNumCards":"2","oppNumFouls":"2", "oppNumCornKicks": "2", "oppNumGoalKicks":"2"},{"datePlayed":"10/20/2017","location":"San Diego"}]}]';
+      var x = JSON.parse(data);
+      var home = document.querySelectorAll("[id^=home]");
+      var away = document.querySelectorAll("[id^=opp]");
+      console.log(home);
+      console.log(away);
+      for(i= 0;i < home.length; i++) {
+        if(x[0].game[0][home[i].getAttribute("id")]) {
+          id = home[i].getAttribute("id");
+          if(id == "homeTeam") {
+            home[i].textContent = "Home: " + x[0].game[0][id]; 
+          }
+          else {
+            home[i].textContent = x[0].game[0][id];
+          }
+        }
+      }
+      for(i= 0;i < away.length; i++) {
+        if(x[0].game[1][away[i].getAttribute("id")]) {
+          id = away[i].getAttribute("id");
+          if(id == "oppTeam") {
+             away[i].textContent = "Away: " + x[0].game[1][id]; 
+          }
+          else {
+             away[i].textContent = x[0].game[1][id];
+          }
+        }
+      }
+      var date = document.querySelector("#datePlayed");
+      date.textContent = "Date Played: " + x[0].game[2].datePlayed;
+      var loc = document.querySelector("#location");
+      loc.textContent = "Location: " + x[0].game[2].location;
+    </script>
+  </body>
+  </html>
